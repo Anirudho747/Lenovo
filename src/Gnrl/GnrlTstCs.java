@@ -32,7 +32,8 @@ public class GnrlTstCs {
 		//gt.Srchprod();
 		//gt.Filters();
 		//gt.PriceSorting();
-		gt.CategoryPage();
+		//gt.CategoryPage();
+		gt.Filter_Sort_on_Cat();
 }
 	
 	@SuppressWarnings("unused")
@@ -320,4 +321,64 @@ public class GnrlTstCs {
     		driver.close();
     	}
     }
-}
+
+    public void Filter_Sort_on_Cat() throws InterruptedException
+    {
+    	WebDriver driver = new ChromeDriver();
+    	driver.manage().window().maximize();
+    	int p=0;
+    	driver.get("https://www.lenovo.com/in/en/pc");
+    	WebElement Monitor = driver.findElement(By.xpath("//a[@data-name='PC & TABLETS']//following::span[text()='Monitors'][1]")); 
+    	Actions actn = new Actions(driver);
+    	actn.moveToElement(Monitor).build().perform();;
+    	WebElement Monitors_for_home = driver.findElement(By.xpath("//a[@title='Monitors for Home']"));
+    	Monitors_for_home.click();
+     	WebElement Pop_up = driver.findElement(By.xpath("//div[@id='closeStickySMB']"));
+    	Pop_up.click();
+    	driver.findElement(By.xpath("//div[@class='close-lnv-call-center']")).click();
+    	WebElement price = driver.findElement(By.xpath("//h3[@data-term='Price']"));
+    	price.click();
+    	WebElement Low_price_Range = driver.findElement(By.xpath("//h3[@data-term='Price']//following::input[@id='facetInput'][1]"));
+    	Low_price_Range.click();
+    	Thread.sleep(2000);
+    	WebElement sorter = driver.findElement(By.xpath("//button[@data-id='sortOptions1']"));
+    	sorter.click();
+    	WebElement Price_High = driver.findElement(By.xpath("//label[text()='Sort by:']//following::span[4]"));
+    	Price_High.click();
+    	List<WebElement> Sales_price = driver.findElements(By.xpath("//dd[@potentialdistype='SALESPRICE']"));
+    	LinkedList<String> txt = new LinkedList<String>();
+    	LinkedList<String> txt2 = new LinkedList<String>();
+    	for(WebElement we:Sales_price)
+    	{
+    		String s=we.getText();
+    		s= s.substring(1);
+    		txt.add(s);
+    	}
+    	txt2.addAll(txt);
+    	Collections.sort(txt);
+        int trker=0;
+    	Iterator rev = txt.descendingIterator();
+    	Iterator rev2 = txt2.iterator();
+    	while(rev.hasNext())
+    	{
+    		while(rev2.hasNext())
+    		{
+    		if(!(rev.next().equals(rev2.next())))
+    		{
+    			trker=1;
+    			System.out.println("text1 "+rev.next());
+    			System.out.println("text2 "+rev2.next());
+    			break;
+    		}
+    		}
+    		
+    	}
+    	
+    	if(trker==0) {
+    		System.out.println("Proper Sorting Done");	
+    	}
+    	else {
+    		System.out.println("Incorrect Sorting Done");
+    	}    	
+    }
+    }

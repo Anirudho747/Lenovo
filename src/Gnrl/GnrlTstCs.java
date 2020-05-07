@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GnrlTstCs {
+	
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -33,7 +34,8 @@ public class GnrlTstCs {
 		//gt.Filters();
 		//gt.PriceSorting();
 		//gt.CategoryPage();
-		gt.Filter_Sort_on_Cat();
+		//gt.Filter_Sort_on_Cat();
+          gt.ToolTip();		
 }
 	
 	@SuppressWarnings("unused")
@@ -381,4 +383,40 @@ public class GnrlTstCs {
     		System.out.println("Incorrect Sorting Done");
     	}    	
     }
+ 
+    public void ToolTip() throws InterruptedException
+    {
+    	WebDriver driver = new ChromeDriver();
+    	driver.manage().window().maximize();
+    	driver.get("https://www.lenovo.com/in/en/pc");
+    	WebElement Accsrs = driver.findElement(By.xpath("//a[@data-name='PC & TABLETS']//following::span[text()='Accessories'][1]")); 
+    	Accsrs.click();
+    	Thread.sleep(7000);
+    	List<WebElement> frms = driver.findElements(By.tagName("iframe"));
+    	System.out.println(frms.size());
+
+    	for(WebElement we:frms)
+    	{
+    		System.out.println(we.getText());
+    		System.out.println(we.getAttribute("title"));
+    		System.out.println(we.toString());
+    		System.out.println(we.isDisplayed());
+    		System.out.println(we.isEnabled());
+    		
+    	}
+    	
+    	//driver.switchTo().frame(driver.findElement(By.xpath("//span[@class='IconProductData minusIcon']//following::a[@href='/in/en/accessories/monitors/c/monitors']")));
+    	WebDriverWait wat = new WebDriverWait(driver,1600); 
+    	wat.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//span[@class='IconProductData minusIcon']//following::a[@href='/in/en/accessories/monitors/c/monitors']"))));
+    	driver.findElement(By.xpath("//span[@class='IconProductData minusIcon']//following::a[@href='/in/en/accessories/monitors/c/monitors']")).click();
+    	
+    //	Thread.sleep(7000);
+    //	WebElement mnsicn = driver.findElement(By.xpath("//span[@class='IconProductData minusIcon']"));
+    //	WebElement division = driver.findElement(By.xpath("//span[@class='IconProductData minusIcon']//following::div[@class='L1CateLink'][1]"));
+    //	WebElement hyperlnk = driver.findElement(By.xpath("//span[@class='IconProductData minusIcon']//following::a[@href='/in/en/accessories/monitors/c/monitors']"));
+     	
+    //	System.out.println(mnsicn.getAttribute("title"));
+    //	System.out.println(division.getAttribute("title"));
+    //	System.out.println(hyperlnk.getAttribute("title"));
     }
+}

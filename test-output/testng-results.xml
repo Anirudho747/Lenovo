@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" ignored="5" total="6" passed="1">
   <reporter-output>
-    <line>
-      <![CDATA[Hi]]>
-    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16296" started-at="2020-05-08T08:18:15 IST" finished-at="2020-05-08T08:18:31 IST">
+  <suite name="Default suite" duration-ms="57469" started-at="2020-05-13T08:04:54 IST" finished-at="2020-05-13T08:05:51 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16296" started-at="2020-05-08T08:18:15 IST" finished-at="2020-05-08T08:18:31 IST">
+    <test name="Default test" duration-ms="57469" started-at="2020-05-13T08:04:54 IST" finished-at="2020-05-13T08:05:51 IST">
       <class name="Gnrl.prodFlow">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Gnrl.prodFlow@9660f4e]" name="beforeclass" is-config="true" duration-ms="7177" started-at="2020-05-08T08:18:15 IST" finished-at="2020-05-08T08:18:22 IST">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Gnrl.prodFlow@9660f4e]" name="beforeclass" is-config="true" duration-ms="9396" started-at="2020-05-13T08:04:54 IST" finished-at="2020-05-13T08:05:03 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="Login()[pri:6, instance:Gnrl.prodFlow@9660f4e]" name="Login" duration-ms="9079" started-at="2020-05-08T08:18:22 IST" finished-at="2020-05-08T08:18:31 IST">
+        <test-method status="PASS" signature="Quantity_DeliveryAddress()[pri:5, instance:Gnrl.prodFlow@9660f4e]" name="Quantity_DeliveryAddress" duration-ms="48018" started-at="2020-05-13T08:05:03 IST" finished-at="2020-05-13T08:05:51 IST">
           <reporter-output>
-            <line>
-              <![CDATA[Hi]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:Gnrl.prodFlow@9660f4e]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-05-08T08:18:31 IST" finished-at="2020-05-08T08:18:31 IST">
+        </test-method> <!-- Quantity_DeliveryAddress -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:Gnrl.prodFlow@9660f4e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-05-13T08:05:51 IST" finished-at="2020-05-13T08:05:51 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

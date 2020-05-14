@@ -102,6 +102,7 @@ public class prodFlow {
   
   @Test(priority=4,enabled=false)
   public void compare2() {
+	  driver.get("https://www.lenovo.com/in/en/pc");
 	  WebElement Smartdev = driver.findElement(By.xpath("//a[@data-name='PC & TABLETS']//following::a[@data-name='Smart Devices'][1]"));
 	  WebDriverWait wait = new WebDriverWait(driver,61);
       wait.until(ExpectedConditions.elementToBeClickable(Smartdev));
@@ -120,7 +121,7 @@ public class prodFlow {
 	  cmpr_Item.click();
   }
 
-  @Test(priority=5,enabled=false)
+  @Test(priority=5,enabled=true)
   public void Quantity_DeliveryAddress() throws InterruptedException {
 	  WebElement Smartdev = driver.findElement(By.xpath("//a[@data-name='PC & TABLETS']//following::a[@data-name='Smart Devices'][1]"));
 	  Smartdev.click();
@@ -129,8 +130,9 @@ public class prodFlow {
 	  JavascriptExecutor js = (JavascriptExecutor)driver; 
 	  js.executeScript("arguments[0].scrollIntoView", smarter);
 	  Disp7.click();
+	  
 	  try
-	  {
+	  {	  
 	  WebElement Pop_up = driver.findElement(By.xpath("//div[@id='closeStickySMB']"));
   	  Pop_up.click();
 	  }catch (Exception e)
@@ -138,13 +140,10 @@ public class prodFlow {
 		  System.out.println("pop-up not displayed");
 	  }finally
 	  {
-  	  driver.findElement(By.xpath("//div[@class='close-lnv-call-center']")).click();
+	  driver.findElement(By.xpath("//div[@class='close-lnv-call-center']")).click();
   	  WebElement A2C = driver.findElement(By.xpath("//button[@id='addToCartButtonTop']"));
   	  A2C.click();	
   	  WebElement QtyDD = driver.findElement(By.xpath("//div[@class='qtyHeader']"));
-  	  QtyDD.click();
-  	  WebElement Discount_coupon = driver.findElement(By.xpath("//div[@class='editable ins-element-editable editable-side-menu-button']"));
-  	  Discount_coupon.click();
   	  QtyDD.click();
   	  WebDriverWait wait = new WebDriverWait(driver,727);
   	  wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector("#updateCartForm0 > div > ul > li.more-number"))));
@@ -154,28 +153,24 @@ public class prodFlow {
   	  WebElement QtyDD2 = driver.findElement(By.cssSelector("#updateCartForm0 > div > div > span"));
   	  String amnt = QtyDD2.getText();
   	  System.out.println("Amount "+amnt);
-  	//  driver.findElement(By.xpath("//img[@src='https://asia-cdn.inside-graph.com/custom/46-close.svg']")).click();
   	  WebElement Pincode = driver.findElement(By.id("pinCode"));
   	  WebElement Chk_pincode = driver.findElement(By.id("cart-summary-pinCode-button"));
   	  Pincode.sendKeys("600901");
   	  Chk_pincode.click();
-  	  String msg = driver.findElement(By.id("ajaxCallResponseMessage")).getText();
-  	  
-  	  
+  	  String msg = driver.findElement(By.cssSelector("#ajaxCallResponseMessage")).getAttribute("title");  	  
   	  Thread.sleep(7000);
   	  System.out.println("Msg1"+msg);
-  	Thread.sleep(7000);
-  	/*  Pincode.clear();
-  	  Thread.sleep(7000);
+   	  Thread.sleep(2500);
+  	  Pincode.clear();
   	  Pincode.sendKeys("736101");
 	  Chk_pincode.click();
-	  msg = driver.findElement(By.id("ajaxCallResponseMessage")).getText();
+	  msg = driver.findElement(By.cssSelector("#pinCode_message_content")).getText();
 	  Thread.sleep(4300);
-	  System.out.println("Msg1"+msg);*/
+	  System.out.println("Msg1"+msg);
 	  }
   }
  
-  @Test(priority=6,enabled=true)
+  @Test(priority=6,enabled=false)
   public void Login() throws InterruptedException {
 	//  Thread.sleep(5000);
 	  WebElement Account = driver.findElement(By.xpath("//input[@id = 'inputSearchText']//preceding::a[@data-id=\"Account\"][4]"));

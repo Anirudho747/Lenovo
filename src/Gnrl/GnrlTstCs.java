@@ -12,6 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,15 +35,15 @@ public class GnrlTstCs {
 		//gt.Filters();
 		//gt.PriceSorting();
 		//gt.CategoryPage();
-		//gt.Filter_Sort_on_Cat();
-          gt.ToolTip();		
+		gt.Filter_Sort_on_Cat();
+        //gt.ToolTip();		
 }
 	
 	@SuppressWarnings("unused")
 	public void lcHomepage()
 	{
 		String base = "https://www.lenovo.com/in/en/";
-		WebDriver driver = new FirefoxDriver();
+		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.lenovo.com/in/en/pc");
 		try
 		{
@@ -84,46 +85,69 @@ public class GnrlTstCs {
 	public void prodcount()
 
 	{
-		WebDriver driver = new FirefoxDriver();
-		driver.get("https://www.lenovo.com/in/en?Redirect=False");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.lenovo.com/in/en/pc");
+		driver.manage().window().maximize();
 		try {
-			WebElement PC = driver.findElement(By.xpath("//a[@data-name='PC & TABLETS']"));
-			PC.click();
-			WebElement Buy_In_Ur_City = driver.findElement(By.xpath("//a[@title='Buy in Your City']"));
+			WebElement Lenovo_Pro = driver.findElement(By.xpath("//a[@title='LenovoPro']"));
 			JavascriptExecutor js = (JavascriptExecutor)driver;
-			js.executeScript("arguments[0].scrollIntoView(true)",Buy_In_Ur_City);
+			js.executeScript("arguments[0].scrollIntoView(true)",Lenovo_Pro);
 		
-			List<WebElement> trendingLaptops = driver.findElements(By.xpath("//div[@class='m-productCode__image']"));
+			Thread.sleep(7000);
+			
+			List<WebElement> trendingLaptops = driver.findElements(By.xpath("//div[@class=\"m-productCode__txt\"]"));
 			int TrendingLP = trendingLaptops.size();
 			System.out.println("Laptops in trending "+TrendingLP);
+		
 			
+			Thread.sleep(7000);
 			
+			driver.manage().timeouts().implicitlyWait(700,TimeUnit.SECONDS);
 			WebElement Best_Seller = driver.findElement(By.xpath("//a[@data-tab-title='Best Sellers']"));
 			driver.manage().timeouts().implicitlyWait(1600,TimeUnit.SECONDS);
 			Best_Seller.click();
-			List<WebElement> B_S_Laptops = driver.findElements(By.xpath("//div[@class='m-productCode__image']"));
+			driver.manage().timeouts().implicitlyWait(1600,TimeUnit.SECONDS);
+			List<WebElement> B_S_Laptops = driver.findElements(By.xpath("//div[@class=\"m-productCode__txt\"]"));
 			int BSLP = B_S_Laptops.size();
+			System.out.println("Total BSLP "+BSLP);
 			BSLP=BSLP-TrendingLP;
 			System.out.println("Laptops in Best Selling "+BSLP);
 			
+			
+			Thread.sleep(7000);
+			
+			driver.manage().timeouts().implicitlyWait(700,TimeUnit.SECONDS);
 			WebElement For_work = driver.findElement(By.xpath("//a[@data-tab-title='FOR WORK']"));
 			For_work.click();
-			List<WebElement> forworkassets = driver.findElements(By.xpath("//div[@class='m-productCode__image']"));
+			driver.manage().timeouts().implicitlyWait(1600,TimeUnit.SECONDS);
+			List<WebElement> forworkassets = driver.findElements(By.xpath("//div[@class=\"m-productCode__txt\"]"));
 			int FWLP = forworkassets.size();
+			System.out.println("Total FWLP "+FWLP);
 			FWLP=FWLP-BSLP-TrendingLP;
 			System.out.println("Laptops in for-work "+FWLP);
 			
+			Thread.sleep(7000);
+			
+			driver.manage().timeouts().implicitlyWait(700,TimeUnit.SECONDS);
 			WebElement For_home = driver.findElement(By.xpath("//a[@data-tab-title='FOR HOME']"));
 			For_home.click();
-			List<WebElement> forhomeassets = driver.findElements(By.xpath("//div[@class='m-productCode__image']"));
+			driver.manage().timeouts().implicitlyWait(1600,TimeUnit.SECONDS);
+			List<WebElement> forhomeassets = driver.findElements(By.xpath("//div[@class=\"m-productCode__txt\"]"));
 			int FHLP = forhomeassets.size();
+			System.out.println("Total FHLP "+FHLP);
 			FHLP=FHLP-FWLP-BSLP-TrendingLP;
 			System.out.println("Laptops in for-home "+FHLP);
+		
 			
+			Thread.sleep(7000);
+			
+			driver.manage().timeouts().implicitlyWait(700,TimeUnit.SECONDS);
 			WebElement For_gaming = driver.findElement(By.xpath("//a[@data-tab-title='FOR GAMING']"));
 			For_gaming.click();
-			List<WebElement> forgameassets = driver.findElements(By.xpath("//div[@class='m-productCode__image']"));
+			driver.manage().timeouts().implicitlyWait(1600,TimeUnit.SECONDS);
+			List<WebElement> forgameassets = driver.findElements(By.xpath("//div[@class=\"m-productCode__txt\"]"));
 			int FGLP = forgameassets.size();
+			System.out.println("Total FGLP "+FGLP);
 			FGLP=FGLP-FHLP-FWLP-BSLP-TrendingLP;
 			System.out.println("Laptops in for-game "+FGLP);
 			
@@ -134,13 +158,13 @@ public class GnrlTstCs {
 			System.out.println(e.toString());
 		}
 		finally {
-			driver.close();
+			//driver.close();
 		}
 	}
 
     public void Srchprod() throws InterruptedException
 {
-	WebDriver driver = new FirefoxDriver();
+	WebDriver driver = new ChromeDriver();
 	driver.get("https://www.lenovo.com/in/en/pc");
 	
 	WebElement Srchbox = driver.findElement(By.id("inputSearchText"));
@@ -306,7 +330,7 @@ public class GnrlTstCs {
     	driver.findElement(By.xpath("//div[@class='close-lnv-call-center']")).click();
     	WebElement nextPage = driver.findElement(By.xpath("//a[text()=2]"));
     	nextPage.click();
-    	WebDriverWait wait1 = new WebDriverWait(driver,52);
+    	WebDriverWait wait1 = new WebDriverWait(driver,151);
     	List Moncount2 = driver.findElements(By.xpath("//img[@class='accessoriesList-media-image qa_acc_list_gallery lazy lazyLoadAfterDOMInteractive']"));
     	wait1.until(ExpectedConditions.visibilityOfAllElements(Moncount2));
     	//wait1.until(ExpectedConditions.elementToBeClickable((By) driver.findElements(By.xpath("//img[@class='accessoriesList-media-image qa_acc_list_gallery lazy lazyLoadAfterDOMInteractive']"))));

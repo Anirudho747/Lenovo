@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Gnrl.Login">
+      <class name="Gnrl.prodFlow">
         <methods>
-          <include name="beforeMethod"/>
-          <include name="f"/>
-          <include name="afterMethod"/>
+          <include name="Quantity_DeliveryAddress"/>
+          <include name="afterClass"/>
+          <include name="beforeclass"/>
         </methods>
-      </class> <!-- Gnrl.Login -->
+      </class> <!-- Gnrl.prodFlow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -5,7 +5,7 @@
     <classes>
       <class name="Gnrl.prodFlow">
         <methods>
-          <include name="Quantity_DeliveryAddress"/>
+          <include name="add_2_cart"/>
           <include name="afterClass"/>
           <include name="beforeclass"/>
         </methods>

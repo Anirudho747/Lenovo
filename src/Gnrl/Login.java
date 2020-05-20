@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -81,7 +82,7 @@ public class Login {
 
   @DataProvider
   public Object[][] dp() throws IOException {
-   FileInputStream FIS = new FileInputStream("D:\\Progs\\Combo.csv"); 
+   FileInputStream FIS = new FileInputStream("D:\\Progs\\Combo2.xlsx"); 
    XSSFWorkbook wb = new XSSFWorkbook(FIS); 
    XSSFSheet sheet = wb.getSheetAt(0);
    XSSFCell Cell;
@@ -96,7 +97,9 @@ public class Login {
 	   Row row = sheet.getRow(i);
 	   for(int j=0,j1=0;j<row.getLastCellNum();j++,j1++)
 	   {
-		   Cell = sheet.getRow(i).getCell(j);
+		   //Cell = sheet.getRow(i).getCell(j);
+		   Cell = sheet.getRow(j).getCell(j,org.apache.poi.ss.usermodel.Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+		   Cell.setCellType(CellType.STRING);
 		   String sdata = Cell.getStringCellValue();
 		   Reporter.log("Hi");
 		   result[i1][j1] = sdata;

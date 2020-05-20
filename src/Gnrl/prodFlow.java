@@ -32,7 +32,7 @@ public class prodFlow {
 	  driver.manage().timeouts().implicitlyWait(52,TimeUnit.SECONDS);
   }
    
-  @Test(priority=1,enabled=false)
+  @Test(priority=1,enabled=true)
   public void add_2_cart() {
 	  WebElement Smartdev = driver.findElement(By.xpath("//a[@data-name='PC & TABLETS']//following::a[@data-name='Smart Devices'][1]"));
 	  Smartdev.click();
@@ -48,12 +48,36 @@ public class prodFlow {
 	  }catch (Exception e)
 	  {
 		  System.out.println("pop-up not displayed");
-	  }finally
-	  {
-  	  driver.findElement(By.xpath("//div[@class='close-lnv-call-center']")).click();
-  	  WebElement A2C = driver.findElement(By.xpath("//button[@id='addToCartButtonTop']"));
-  	  A2C.click();	  
 	  }
+  	  //driver.findElement(By.xpath("//div[@class='close-lnv-call-center']")).click();
+  	  WebElement A2C = driver.findElement(By.xpath("//button[@id='addToCartButtonTop']"));
+  	  A2C.click();
+	  
+	 
+      for(int i=0; i<=7;i++)
+      { try{
+		     driver.findElement(By.xpath("//a[@data-name='PC & TABLETS']//following::a[@data-name='Smart Devices'][1]")).click();
+		     break;
+		  }
+		  catch(Exception e){
+		     System.out.println(e.getMessage());
+		  } }
+      
+	  WebElement Disp10 = driver.findElement(By.xpath("//img[@alt='Lenovo Smart Display 10']"));
+  	  Disp10.click();
+
+	 // WebElement A2C = driver.findElement(By.xpath("//button[@id='addToCartButtonTop']"));
+  	  for(int i=0;i<=7;i++)
+  	    {
+  		  try {
+  	           driver.findElement(By.xpath("//button[@id='addToCartButtonTop']")).click();
+  	           break;
+  	          }     
+  		  catch(Exception e)
+	  				{
+  	    	         System.out.println(e.getMessage());
+	  				}
+         }
   }
     
   @Test(priority=2,enabled=false)
@@ -121,7 +145,7 @@ public class prodFlow {
 	  cmpr_Item.click();
   }
 
-  @Test(priority=5,enabled=true)
+  @Test(priority=5,enabled=false)
   public void Quantity_DeliveryAddress() throws InterruptedException {
 	  WebElement Smartdev = driver.findElement(By.xpath("//a[@data-name='PC & TABLETS']//following::a[@data-name='Smart Devices'][1]"));
 	  Smartdev.click();

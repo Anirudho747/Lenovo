@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="5" total="6" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="57469" started-at="2020-05-13T08:04:54 IST" finished-at="2020-05-13T08:05:51 IST">
+  <suite name="Default suite" duration-ms="103436" started-at="2020-05-19T20:50:27 IST" finished-at="2020-05-19T20:52:10 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="57469" started-at="2020-05-13T08:04:54 IST" finished-at="2020-05-13T08:05:51 IST">
+    <test name="Default test" duration-ms="103436" started-at="2020-05-19T20:50:27 IST" finished-at="2020-05-19T20:52:10 IST">
       <class name="Gnrl.prodFlow">
-        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Gnrl.prodFlow@9660f4e]" name="beforeclass" is-config="true" duration-ms="9396" started-at="2020-05-13T08:04:54 IST" finished-at="2020-05-13T08:05:03 IST">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:Gnrl.prodFlow@9660f4e]" name="beforeclass" is-config="true" duration-ms="7799" started-at="2020-05-19T20:50:27 IST" finished-at="2020-05-19T20:50:34 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeclass -->
-        <test-method status="PASS" signature="Quantity_DeliveryAddress()[pri:5, instance:Gnrl.prodFlow@9660f4e]" name="Quantity_DeliveryAddress" duration-ms="48018" started-at="2020-05-13T08:05:03 IST" finished-at="2020-05-13T08:05:51 IST">
+        <test-method status="PASS" signature="add_2_cart()[pri:1, instance:Gnrl.prodFlow@9660f4e]" name="add_2_cart" duration-ms="95584" started-at="2020-05-19T20:50:34 IST" finished-at="2020-05-19T20:52:10 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Quantity_DeliveryAddress -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:Gnrl.prodFlow@9660f4e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-05-13T08:05:51 IST" finished-at="2020-05-13T08:05:51 IST">
+        </test-method> <!-- add_2_cart -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:Gnrl.prodFlow@9660f4e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-05-19T20:52:10 IST" finished-at="2020-05-19T20:52:10 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

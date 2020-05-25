@@ -1,0 +1,32 @@
+Test Scenarios	Test Results
+General Test Cases	
+Verify that all the links and banners are redirecting to correct product/category pages and none of the links arr broken	Pass
+Verify that correct count of total products are listed on the category pages	Fail(Monitor Page shows 13 , however there are 14 items Listed)
+Search – Verify that count of products is correctly displayed on the search result page for a particular search term	Pass
+Filtering – Verify that filtering functionality correctly filters product based on the filter applied	Pass
+Filtering – Verify that filtering works correctly on category pages	Pass
+Filtering – Verify that filtering works correctly on the search result page	Pass
+Filtering – Verify that correct count of total products is displayed after a filter is applied	Monitor Page
+Sorting – Verify that all the sort options work correctly – correctly sort the products based on the sort option chosen	Pass
+Sorting – Verify that sorting works correctly on the category pages	Pass
+Sorting – Verify that sorting works correctly on the search result page	Pass
+Sorting – Verify that sorting works correctly on the pages containing filtered result, after applying filters	Pass
+Sorting – Verify that product count remains intact irrespective of sorting option applied	Pass
+See if hyperlink is properly and correctly provided	Accessories
+Product Buy Flow – Test cases	
+Verify that user can add to cart one or more products	Pass
+Verify that user can compare products	Pass
+Verify that user can buy products added to cart after signing in to the application (or as per the functionality of the website)	
+Verify that user cannot add more than available inventory of the product	Pass
+Verify that the delivery can be declined of for the places where shipping is not available	Pass
+User(Buyer) Registration – Test cases	
+Verify that the required/mandatory fields are marked with * against the field	
+Verify that for better user interface dropdowns, radio buttons and checkboxes etc fields are displayed wherever possible instead of just textboxes	Fail
+Verify the page has both submit and cancel/reset buttons at the end	Fail
+Verify that clicking submit button after entering all the required fields, submits the data to the server	
+Verify that not filling the mandatory fields and clicking submit button will lead to validation error	
+Check the upper limit of the textboxes	
+Check validation on email fields (only valid email Ids should be allowed	
+Verify that leading and trailing spaces are trimmed	
+Verify that entering blank spaces on mandatory fields lead to validation error	
+Verify that after making a request to the server and then sending the same request again with the same unique key will lead to server side validation error	
